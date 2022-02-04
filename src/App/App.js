@@ -1,7 +1,7 @@
 import './App.css';
 import React, {Component} from 'react'
-import Main from '../Main/Main.js'
-import Nav from '../Nav/Nav.js'
+import Main from '../Main/Main'
+import Nav from '../Nav/Nav'
 import movieData from '../testData/movieData.js'
 
 class App extends Component {
@@ -14,10 +14,10 @@ class App extends Component {
 
   render() {
     return (
-      <body>
+      <section >
         <Nav />
-        <Main /> 
-      </body>
+        <Main />
+      </section>
     )
   }
 }
