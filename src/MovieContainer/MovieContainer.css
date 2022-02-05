@@ -1,0 +1,14 @@
+main {
+  margin-top: 8%;
+}
+.Category-title {
+  font-family: 'Nanum Gothic', sans-serif;
+  margin-left: 13%;
+}
+
+.movies-section {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+}

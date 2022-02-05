@@ -1,0 +1,41 @@
+
+nav {
+  display: flex;
+  border-bottom: 1px solid black;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(10, 255, 255, 0.33);
+}
+
+.logo-img,
+.logo-button {
+  width: 20%;
+  height: 20%;
+  background: transparent;
+  border: none;
+}
+
+.logo-button {
+  font-size: 10px;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 20px;
+}
+
+.top-rated-button,
+.currently-playing-button,
+.genre-button  {
+  width: 50%;
+  height: 100%;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 20px;
+  background: transparent;
+  border: none;
+
+}
+
+.nav-buttons {
+  display: flex;
+  width: 100%;
+}
