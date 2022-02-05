@@ -1,6 +1,6 @@
 import './App.css';
 import React, {Component} from 'react'
-import Main from '../Main/Main'
+import MovieContainer from '../MovieContainer/MovieContainer'
 import Nav from '../Nav/Nav'
 import movieData from '../testData/movieData.js'
 
@@ -8,25 +8,27 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: [],
+      movies: movieData.movies,
       error: false,
     }
   }
   
-    componentDidMount() {
-     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-      .then(response => response.json())
-      .then(movies => this.setState({movies}))
-      .catch(() => this.setState({error: true}))
-      console.log('I mounted 1st')
+   componentDidMount() {
+    //  fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     this.setState({ ...this.state, movies: data.movies })
+    //   })
+    //   .catch(() => this.setState({...this.state, error: true}))
+    //   console.log('I mounted 1st')
     }
-  
-
+    
+    
   render() {
     return (
       <section >
         <Nav />
-        <Main moviesProps={this.state.movies}/>
+        <MovieContainer movies={this.state.movies}/>
       </section>
     )
   }

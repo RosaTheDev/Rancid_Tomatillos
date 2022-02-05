@@ -1,29 +1,32 @@
 import React from 'react'
-import './Main.css'
+import './MovieContainer.css'
 import Movie from './Movie/Movie'
 
-const Main = ({moviesProps}) => {
-  // const  movies  = moviesProps
-  console.log('main container', moviesProps.movies)
-  // setTimeout(console.log(movies), 3000)
+const MovieContainer = ({movies}) => {
   
-    const movieCards = moviesProps.movies.map(movie => {
+  console.log('main container', movies)
+  
+    const movieCards = movies.map(movie => {
       return (
       <Movie 
+        key={movie.id}
         title={movie.title}
         poster={movie.poster_path}
         avgRating={movie.average_rating}
         />
       )
     })
+    
   return (
     <main>
       <h1 className="Category-title">Upcoming Movies</h1>
       <section className='movies-section'>
-         {movieCards}
+        {/* {!movies && <h1>Loading...</h1>} */}
+        {/* <h1>Loading...</h1> */}
+        {movies && movieCards}
       </section>
     </main>
   )
 }
 
-export default Main
+export default MovieContainer
