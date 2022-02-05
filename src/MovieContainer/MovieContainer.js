@@ -21,8 +21,6 @@ const MovieContainer = ({movies}) => {
     <main>
       <h1 className="Category-title">Upcoming Movies</h1>
       <section className='movies-section'>
-        {/* {!movies && <h1>Loading...</h1>} */}
-        {/* <h1>Loading...</h1> */}
         {movies && movieCards}
       </section>
     </main>

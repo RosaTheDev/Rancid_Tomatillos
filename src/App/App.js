@@ -13,7 +13,7 @@ class App extends Component {
     }
   }
   
-   componentDidMount() {
+  //  componentDidMount() {
     //  fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
     //   .then(response => response.json())
     //   .then(data => {
@@ -21,7 +21,7 @@ class App extends Component {
     //   })
     //   .catch(() => this.setState({...this.state, error: true}))
     //   console.log('I mounted 1st')
-    }
+    // }
     
     
   render() {
