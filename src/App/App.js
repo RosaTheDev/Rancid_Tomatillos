@@ -3,17 +3,18 @@ import React, {Component} from 'react'
 import MovieContainer from '../MovieContainer/MovieContainer'
 import Nav from '../Nav/Nav'
 import movieData from '../testData/movieData.js'
+import SingleMovie from '../SingleMovie/SingleMovie'
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: movieData.movies,
+      movies: [],
       error: false,
       currentMovie: null
     }
   }
-  
+
     grabAPI() {
       fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
         .then(response => response.json())
@@ -22,21 +23,24 @@ class App extends Component {
         })
         .catch(() => this.setState({ ...this.state, error: true }))
     }
-    componentDidMount() {
-      this.grabAPI()
-    }
-    
-    displaySingleMovie = (id) => {
-      this.grabSingleMovie(id)
-    }
+
+  componentDidMount() {
+    this.grabAPI()
+  }
     
     grabSingleMovie = (id) => {
       fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
         .then(response => response.json())
         .then(data => {
-          this.setState({ ...this.state, currentMovie: data.movies })
+            this.setState({ ...this.state, currentMovie: [data.movie] })
         })
         .catch(() => this.setState({ ...this.state, error: true }))
+    }
+
+    displaySingleMovie = (id) => {
+      this.grabSingleMovie(id)
+      this.setState({ ...this.state, movies: [] })
+      console.log('movie', this.state.currentMovie);
     }
 
     goHome = () => {

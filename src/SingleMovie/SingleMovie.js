@@ -1,10 +1,12 @@
 import React from 'react'
 import './SingleMovie.css'
+import MovieInfo from './MovieInfo/MovieInfo'
 
 
 const SingleMovie = ({ movie }) => {
 
   const singleMovieCard = movie.map(movie => {
+
     return (
       <MovieInfo
         key={movie.id}
@@ -21,16 +23,17 @@ const SingleMovie = ({ movie }) => {
         runtime={movie.runtime}
         tagline={movie.tagline}
       />
+    
     )
   })
 
   return (
-    <main>
-      <h1 className="Category-title">Upcoming Movies</h1>
-      <section className='movies-section'>
-        {movies && singleMovieCard}
-      </section>
-    </main>
+    <section>
+      <h1 className="Category-title"> {singleMovieCard[0].props.title}</h1>
+      <div className='movies-section'>
+        {movie && singleMovieCard}
+      </div>
+    </section>
   )
 }
 
