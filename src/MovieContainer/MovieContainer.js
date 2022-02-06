@@ -2,7 +2,7 @@ import React from 'react'
 import './MovieContainer.css'
 import Movie from './Movie/Movie'
 
-const MovieContainer = ({movies}) => {
+const MovieContainer = ({movies, singleMovie}) => {
   
   console.log('main container', movies)
   
@@ -13,6 +13,8 @@ const MovieContainer = ({movies}) => {
         title={movie.title}
         poster={movie.poster_path}
         avgRating={movie.average_rating}
+        id={movie.id}
+        singleMovie={singleMovie}
         />
       )
     })

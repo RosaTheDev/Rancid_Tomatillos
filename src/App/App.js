@@ -23,12 +23,19 @@ class App extends Component {
     //   console.log('I mounted 1st')
     // }
     
+    displaySingleMovie = (id) => {
+      const findMovie = this.state.movies.find(movie => movie.id === id);
+      console.log(findMovie)
+      this.setState({...this.state, movies: [findMovie]})
+    }
     
+   
+
   render() {
     return (
       <section >
         <Nav />
-        <MovieContainer movies={this.state.movies}/>
+        <MovieContainer movies={this.state.movies} singleMovie={this.displaySingleMovie}/>
       </section>
     )
   }
