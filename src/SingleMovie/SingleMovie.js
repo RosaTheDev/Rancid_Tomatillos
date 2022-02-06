@@ -1,6 +1,10 @@
+import React from 'react'
+import './SingleMovie.css'
+
+
 const SingleMovie = ({ movie }) => {
 
-  const singleMovieCards = movie.map(movie => {
+  const singleMovieCard = movie.map(movie => {
     return (
       <MovieInfo
         key={movie.id}
@@ -24,7 +28,7 @@ const SingleMovie = ({ movie }) => {
     <main>
       <h1 className="Category-title">Upcoming Movies</h1>
       <section className='movies-section'>
-        {movies && singleMovieCards}
+        {movies && singleMovieCard}
       </section>
     </main>
   )
