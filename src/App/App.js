@@ -10,6 +10,7 @@ class App extends Component {
     this.state = {
       movies: movieData.movies,
       error: false,
+      currentMovie: null
     }
   }
   
@@ -21,25 +22,27 @@ class App extends Component {
         })
         .catch(() => this.setState({ ...this.state, error: true }))
     }
-   componentDidMount() {
+    componentDidMount() {
       this.grabAPI()
     }
     
     displaySingleMovie = (id) => {
+      
       const findMovie = this.state.movies.find(movie => movie.id === id);
       console.log(findMovie)
       this.setState({...this.state, movies: [findMovie]})
     }
     
-   goHome = () => {
-    this.grabAPI()
-   }
+    goHome = () => {
+      this.grabAPI()
+    }
 
   render() {
     return (
       <section >
         <Nav goHome={this.goHome}/>
         <MovieContainer movies={this.state.movies} singleMovie={this.displaySingleMovie}/>
+        {this.state.currentMovie && <SingleRecipe />} 
       </section>
     )
   }
