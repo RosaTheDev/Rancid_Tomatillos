@@ -13,15 +13,17 @@ class App extends Component {
     }
   }
   
-  //  componentDidMount() {
-    //  fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     this.setState({ ...this.state, movies: data.movies })
-    //   })
-    //   .catch(() => this.setState({...this.state, error: true}))
-    //   console.log('I mounted 1st')
-    // }
+    grabAPI() {
+      fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+        .then(response => response.json())
+        .then(data => {
+          this.setState({ ...this.state, movies: data.movies })
+        })
+        .catch(() => this.setState({ ...this.state, error: true }))
+    }
+   componentDidMount() {
+      this.grabAPI()
+    }
     
     displaySingleMovie = (id) => {
       const findMovie = this.state.movies.find(movie => movie.id === id);
@@ -29,12 +31,14 @@ class App extends Component {
       this.setState({...this.state, movies: [findMovie]})
     }
     
-   
+   goHome = () => {
+    this.grabAPI()
+   }
 
   render() {
     return (
       <section >
-        <Nav />
+        <Nav goHome={this.goHome}/>
         <MovieContainer movies={this.state.movies} singleMovie={this.displaySingleMovie}/>
       </section>
     )

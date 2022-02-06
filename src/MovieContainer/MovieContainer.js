@@ -4,8 +4,6 @@ import Movie from './Movie/Movie'
 
 const MovieContainer = ({movies, singleMovie}) => {
   
-  console.log('main container', movies)
-  
     const movieCards = movies.map(movie => {
       return (
       <Movie 
