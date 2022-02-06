@@ -27,12 +27,18 @@ class App extends Component {
     }
     
     displaySingleMovie = (id) => {
-      
-      const findMovie = this.state.movies.find(movie => movie.id === id);
-      console.log(findMovie)
-      this.setState({...this.state, movies: [findMovie]})
+      this.grabSingleMovie(id)
     }
     
+    grabSingleMovie = (id) => {
+      fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+        .then(response => response.json())
+        .then(data => {
+          this.setState({ ...this.state, currentMovie: data.movies })
+        })
+        .catch(() => this.setState({ ...this.state, error: true }))
+    }
+
     goHome = () => {
       this.grabAPI()
     }
@@ -42,7 +48,7 @@ class App extends Component {
       <section >
         <Nav goHome={this.goHome}/>
         <MovieContainer movies={this.state.movies} singleMovie={this.displaySingleMovie}/>
-        {this.state.currentMovie && <SingleRecipe />} 
+        {this.state.currentMovie && <SingleMovie movie={this.state.currentMovie}/>} 
       </section>
     )
   }
