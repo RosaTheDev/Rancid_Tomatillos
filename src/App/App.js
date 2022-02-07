@@ -44,15 +44,16 @@ class App extends Component {
 
     goHome = () => {
       this.grabAPI()
-      console.log('click');
-      console.log(this.state.movies);
+      this.setState({ ...this.state, currentMovie: null })
     }
 
   render() {
     return (
       <section >
         <Nav goHome={this.goHome}/>
-        {!this.state.currentMovie ? <MovieContainer movies={this.state.movies} singleMovie={this.displaySingleMovie} /> : <SingleMovie movie={this.state.currentMovie} />}
+        {!this.state.currentMovie ? 
+          <MovieContainer movies={this.state.movies} singleMovie={this.displaySingleMovie} /> 
+          : <SingleMovie movie={this.state.currentMovie} />}
       </section>
     )
   }

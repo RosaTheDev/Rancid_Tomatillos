@@ -28,9 +28,9 @@ const SingleMovie = ({ movie }) => {
   })
 
   return (
-    <section>
+    <div>
         {movie && singleMovieCard}
-    </section>
+    </div>
   )
 }
 

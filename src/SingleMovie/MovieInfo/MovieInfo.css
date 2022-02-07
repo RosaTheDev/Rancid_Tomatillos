@@ -1,6 +1,7 @@
 .single-movie {
- display: flex;
- justify-content: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
 }
 
 .movie-specs {
