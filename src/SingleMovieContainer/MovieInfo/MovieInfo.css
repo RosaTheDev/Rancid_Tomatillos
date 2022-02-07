@@ -1,0 +1,8 @@
+.single-movie {
+ display: flex;
+ justify-content: center;
+}
+
+.movie-specs {
+width: 30%;
+}

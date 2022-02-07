@@ -2,7 +2,6 @@ import './App.css';
 import React, {Component} from 'react'
 import MovieContainer from '../MovieContainer/MovieContainer'
 import Nav from '../Nav/Nav'
-import movieData from '../testData/movieData.js'
 import SingleMovie from '../SingleMovie/SingleMovie'
 
 class App extends Component {

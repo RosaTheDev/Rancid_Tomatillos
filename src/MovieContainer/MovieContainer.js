@@ -16,7 +16,7 @@ const MovieContainer = ({movies, singleMovie}) => {
         />
       )
     })
-    
+    console.log(movieCards)
   return (
     <main>
       <h1 className="Category-title">Upcoming Movies</h1>
