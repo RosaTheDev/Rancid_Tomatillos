@@ -1,6 +1,7 @@
 import React from 'react'
 import './SingleMovieContainer.css'
 import MovieInfo from './MovieInfo/MovieInfo'
+import { Route, NavLink } from 'react-router-dom'
 
 
 const SingleMovie = ({ movie }) => {
@@ -8,6 +9,7 @@ const SingleMovie = ({ movie }) => {
   const singleMovieCard = movie.map(movie => {
 
     return (
+      <NavLink to={`/movies/${id}`}>
       <MovieInfo
         key={movie.id}
         title={movie.title}
@@ -22,7 +24,8 @@ const SingleMovie = ({ movie }) => {
         revenue={movie.revenue}
         runtime={movie.runtime}
         tagline={movie.tagline}
-      />
+        />
+        </NavLink>
     
     )
   })
