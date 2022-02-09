@@ -4,6 +4,7 @@ import MovieContainer from '../MovieContainer/MovieContainer'
 import Nav from '../Nav/Nav'
 import SingleMovie from '../SingleMovie/SingleMovie'
 import { Route } from 'react-router-dom'
+
 class App extends Component {
   constructor() {
     super();
@@ -31,15 +32,10 @@ class App extends Component {
       fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
         .then(response => response.json())
         .then(data => {
+          // refactor this withought array
             this.setState({ ...this.state, currentMovie: [data.movie] })
         })
         .catch(() => this.setState({ ...this.state, error: true }))
-    }
-
-    displaySingleMovie = (id) => {
-      this.grabSingleMovie(id)
-      this.setState({ ...this.state, movies: [] })
-      console.log('movie', this.state.currentMovie);
     }
 
     goHome = () => {
@@ -51,13 +47,17 @@ class App extends Component {
     return (
       <section >
         <Nav goHome={this.goHome}/>
-        <Route path='/' render={() => <MovieContainer movies={this.state.movies} singleMovie={this.displaySingleMovie} /> } />
-        <Route path='/movies' render={() => <MovieContainer movies={this.state.movies} singleMovie={this.displaySingleMovie} />} />
+        <Route exact path='/' render={() => <MovieContainer movies={this.state.movies} /> } />
+        <Route exact path='/:id' render={({match}) => {
+          console.log(typeof match.params.id)
 
-        <Route  path='/movies/:id' render={({match}) => {
-          const movieToRender = this.state.movies.find(movie => movie.id === parseInt(match.params.id));
-          return<SingleMovie movie={movieToRender}/>
-        }} 
+          const findMovie = this.state.movies.find((movie) => movie.id === parseInt(match.params.id))
+          if(findMovie) {
+            return (
+              <SingleMovie movie={[findMovie]} />
+              )
+          }
+        }}
         />
         {/* {!this.state.currentMovie ? 
           <MovieContainer movies={this.state.movies} singleMovie={this.displaySingleMovie} /> 
