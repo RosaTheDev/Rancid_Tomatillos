@@ -2,45 +2,59 @@ import React, { Component } from 'react'
 import './SingleMovie.css'
 import MovieInfo from './MovieInfo/MovieInfo'
 import { Route, NavLink } from 'react-router-dom';
-import App from './App/App'
+import App from '../App/App'
 
 
 
 class  SingleMovie extends Component {
-  constructor() {
-    super()
-    this.state;
+  constructor({id}) {
+    super();
+    this.state = {
+      currentMovie: null
+    };
+    this.id = id;
   }
+  componentDidMount() {
+    this.grabSingleMovie(this.id)
+  }
+
+  grabSingleMovie = (id) => {
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ ...this.state, currentMovie: data.movie })
+      })
+      .catch(() => this.setState({ ...this.state, error: true }))
+  }
+  
     singleMovieCard() { 
-    let result = movie.map(movie => {
-    return (
+      return (
       <MovieInfo
-        key={movie.id}
-        title={movie.title}
-        poster={movie.poster_path}
-        avgRating={movie.average_rating}
-        id={movie.id}
-        // overview={movie.overview}
-        // backdrop_path={movie.backdrop_path}
-        // release_date={movie.release_date}
-        // genres={movie.genres}
-        // budget={movie.budget}
-        // revenue={movie.revenue}
-        // runtime={movie.runtime}
-        // tagline={movie.tagline}
+        title={this.state.currentMovie.title}
+        poster={this.state.currentMovie.poster_path}
+        avgRating={this.state.currentMovie.average_rating}
+        id={this.state.currentMovie.id}
+        overview={this.state.currentMovie.overview}
+        backdrop_path={this.state.currentMovie.backdrop_path}
+        release_date={this.state.currentMovie.release_date}
+        genres={this.state.currentMovie.genres}
+        budget={this.state.currentMovie.budget}
+        revenue={this.state.currentMovie.revenue}
+        runtime={this.state.currentMovie.runtime}
+        tagline={this.state.currentMovie.tagline}
       />
     )
-  })
 }
 
   render() {
     return (
       <div>
-        {movie && singleMovieCard}
+        {this.state.currentMovie && this.singleMovieCard()}
       </div>
     )
   } 
 }
+
 
 
 
