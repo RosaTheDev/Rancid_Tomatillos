@@ -1,6 +1,7 @@
 import React from 'react'
 import './MovieContainer.css'
 import Movie from './Movie/Movie'
+import { Route, NavLink } from 'react-router-dom';
 
 const MovieContainer = ({movies, singleMovie}) => {
   
@@ -12,13 +13,13 @@ const MovieContainer = ({movies, singleMovie}) => {
         poster={movie.poster_path}
         avgRating={movie.average_rating}
         id={movie.id}
-        singleMovie={singleMovie}
         />
+
       )
     })
-    console.log(movieCards)
   return (
     <main>
+      
       <h1 className="Category-title">Upcoming Movies</h1>
       <section className='movies-section'>
         {movies && movieCards}
