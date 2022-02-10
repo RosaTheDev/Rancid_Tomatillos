@@ -3,8 +3,7 @@ import './SingleMovie.css'
 import MovieInfo from './MovieInfo/MovieInfo'
 import { Route, NavLink } from 'react-router-dom';
 import App from '../App/App'
-
-
+import grabSingleMovieAPI from '../utilities/singleMovieApi';
 
 class  SingleMovie extends Component {
   constructor({id}) {
@@ -15,17 +14,15 @@ class  SingleMovie extends Component {
     this.id = id;
   }
   componentDidMount() {
-    this.grabSingleMovie(this.id)
-  }
-
-  grabSingleMovie = (id) => {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-      .then(response => response.json())
+    grabSingleMovieAPI(this.id)
       .then(data => {
         this.setState({ ...this.state, currentMovie: data.movie })
       })
       .catch(() => this.setState({ ...this.state, error: true }))
+
   }
+
+  
   
     singleMovieCard() { 
       return (
