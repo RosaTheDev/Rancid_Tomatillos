@@ -17,7 +17,14 @@ class App extends Component {
   componentDidMount() {
     grabAPI()
       .then(data => {
-        this.setState({ ...this.state, movies: data.movies })
+        let cleanData = data.movies.map(movie=> {
+           return {
+            ...movie, 
+            average_rating: movie.average_rating.toFixed(1)
+          }
+        })
+        // console.log(cleanData)
+        this.setState({ ...this.state, movies: cleanData })
       })
       .catch(() => this.setState({ ...this.state, error: true }))
   }
