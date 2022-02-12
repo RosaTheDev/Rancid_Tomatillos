@@ -11,6 +11,7 @@ class App extends Component {
     this.state = {
       movies: [],
       error: false,
+      filteredMovies: []
     }
   }
 
@@ -18,22 +19,33 @@ class App extends Component {
     grabAPI()
       .then(data => {
         let cleanData = data.movies.map(movie=> {
-           return {
+          return {
             ...movie, 
             average_rating: movie.average_rating.toFixed(1)
           }
         })
-        // console.log(cleanData)
-        this.setState({ ...this.state, movies: cleanData })
+        this.setState({ ...this.state, movies: cleanData, filteredMovies: cleanData })
+
       })
       .catch(() => this.setState({ ...this.state, error: true }))
   }
 
+  newFilteredMovies = (e) => {
+    const filteredMovies = this.state.movies.filter((movie) => {
+      if (movie.title.toLowerCase().includes(e.target.value)) {
+        return movie
+      }
+    })
+
+    this.setState({ ...this.state, filteredMovies: filteredMovies})
+  }
+
+
   render() {
     return (
       <section >
-        <Nav/>
-        <Route exact path='/' render={() => <MovieContainer movies={this.state.movies} /> } />
+        <Nav filterMovies={this.newFilteredMovies}/>
+        <Route exact path='/' render={() => <MovieContainer movies={this.state.filteredMovies} /> } />
         <Route exact path='/:id' render={({match}) => {
           const findMovie = this.state.movies.find((movie) => movie.id === parseInt(match.params.id))
           if(findMovie) {

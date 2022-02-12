@@ -2,18 +2,25 @@ import React from 'react'
 import logo from '../movie.png'
 import './Nav.css'
 import { Route, NavLink } from 'react-router-dom';
-const Nav = ({goHome}) => {
+import {useState} from 'react'
+
+
+const Nav = ({filterMovies}) => {
+
   return (
-  <NavLink to={`/`}>
     <nav>
+      <NavLink to={`/`}>
       <button className='logo-button'><img className='logo-img' src={logo} alt='Logo'/>Rancid Tomatillos</button>
-      <div className="nav-buttons">
-        <button className="genre-button">Genres</button>
-        <button className="top-rated-button">Top Rated</button>
-        <button className="currently-playing-button">Currently Playing</button>
+      </NavLink>
+      <div className="search">
+        <div className="search-container">
+          <div className="searchInputWrapper">
+            <input onChange={e => filterMovies(e)} className="searchInput" type="text" placeholder='search movies'>
+            </input>
+          </div>
+        </div>
       </div>
     </nav>
-  </NavLink>
   )
 }
 
