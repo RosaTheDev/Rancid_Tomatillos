@@ -32,7 +32,7 @@ class App extends Component {
 
   newFilteredMovies = (e) => {
     const filteredMovies = this.state.movies.filter((movie) => {
-      if (movie.title.toLowerCase().includes(e.target.value)) {
+      if (movie.title.toLowerCase().includes(e.target.value.toLowerCase())) {
         return movie
       }
     })

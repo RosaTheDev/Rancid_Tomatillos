@@ -27,4 +27,13 @@ describe('Movie Test', () => {
     cy.get('.logo-button')
       .click()
   })
+
+  it('Should be able to select the search bar and fill in with a movie', () => {
+    cy.get('input[type="text"]')
+    .type('Mulan')
+    .should('have.value', 'Mulan')
+    cy.contains('.movie', 'Mulan')
+    .find('img')
+      .click()
+  })
 })
