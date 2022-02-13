@@ -8,7 +8,7 @@ const MovieInfo = ({ title, poster, avgRating, overview, backdrop, release, genr
 
   return (
     <article className="single-movie">
-      <img className="movie-poster" src={poster} width={300} height={400} alt={`title showing in theaters`}/>
+      <img className="single-movie-poster" src={poster} width={300} height={400} alt={`title showing in theaters`}/>
       <iframe width="420" height="396" src={video}/>
       <div className='movie-specs'>
         <h3 className='single-movie-title'> {title}</h3>
