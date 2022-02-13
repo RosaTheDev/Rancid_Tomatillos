@@ -1,9 +1,24 @@
 main {
   margin-top: 8%;
 }
-.Category-title {
+.category-title {
   font-family: 'Nanum Gothic', sans-serif;
-  margin-left: 13%;
+  margin-left: 5%;
+  color: white;
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+  -o-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s;
+}
+
+@keyframes fadeIn{
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
 }
 
 .movies-section {
