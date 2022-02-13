@@ -18,8 +18,7 @@ const MovieContainer = ({movies, singleMovie}) => {
       )
     })
   return (
-    <main>
-      
+    <main> 
       <h1 className="Category-title">Upcoming Movies</h1>
       <section className='movies-section'>
         {movies && movieCards}

@@ -1,18 +1,24 @@
 
 nav {
+  z-index: 1000;
   display: flex;
-  border-bottom: 1px solid black;
-  justify-content: space-around;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: rgba(10, 255, 255, 0.33);
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    width: 80%;
+    margin-left: 10%;
+    align-self: center;
+    background-color: rgba(10, 255, 255, 0.33);
+}
+
+.logo-button-link {
+  width: 20%;
 }
 
 .logo-img,
 .logo-button {
-    width: 29%;
-    height: 74%;
+    width: 60%;
+    height: 90%;
     background: transparent;
     border: none;
 }
