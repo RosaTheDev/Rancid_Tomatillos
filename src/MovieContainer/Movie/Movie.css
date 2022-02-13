@@ -6,8 +6,8 @@
 .movie:hover {
   color: #fff;
   box-shadow: inset 450px 0 0 0 rgba(10, 255, 255, 0.33);
-;;
 }
+
 .movie {
     margin-left: 5%;
     color: white;
@@ -22,7 +22,7 @@
 @keyframes animate-pop {
   0% {
     opacity: 0;
-    transform: scale(0.5, 0.5);
+    transform: scale(.8, .8);
   }
 
   100% {
