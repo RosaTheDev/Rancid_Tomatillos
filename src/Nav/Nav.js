@@ -8,9 +8,10 @@ const Nav = ({filterMovies}) => {
 
   return (
     <nav>
-      <NavLink to={`/`}>
-      <button className='logo-button'><img className='logo-img' src={logo} alt='Logo'/>Rancid Tomatillos</button>
+      <NavLink className='logo-button-link' to={`/`}>
+      <button className='logo-button'><img className='logo-img' src={logo} alt='Logo'/></button>
       </NavLink>
+      <h1 className='header-title'>Rancid Tomatillos</h1>
       <div className="search">
         <div className="search-container">
           <div className="searchInputWrapper">

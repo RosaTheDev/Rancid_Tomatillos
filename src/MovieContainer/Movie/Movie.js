@@ -1,18 +1,20 @@
 import React from 'react';
 import './Movie.css';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 
 const Movie = ({title, poster, avgRating, id}) => {
 
   return (
-    <NavLink to={`/${id}`}>
+    <Link className='movie-link' to={`/${id}`}>
     <article  className='movie'>
-      <img src={poster} width={400} height={400} alt={`${title} showing in theateres`}/>
+      <div className='img-div'>
+        <img className='movie-poster' src={poster} width={400} height={400} alt={`${title} showing in theateres`}/>
+      </div>
       <h3>{title}</h3>
       <h3> Rating: {avgRating}</h3>
     </article>
-    </NavLink>
+    </Link>
   )
 }
 export default Movie;
