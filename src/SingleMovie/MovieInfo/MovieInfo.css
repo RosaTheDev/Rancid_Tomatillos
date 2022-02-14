@@ -1,9 +1,16 @@
 .single-movie {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;;
   margin-top: 10%;
 }
 
 .movie-specs {
 width: 30%;
+}
+.movie-poster {
+  height: 40%;
+  width: 40%;
+}
+.movie-trailer {
+  width: 40%;
 }
