@@ -1,7 +1,6 @@
 import React from 'react'
 import './404NotFound.css'
 const LolNotFound  = () => {
-
   return (
     <div className='error-container'>
       <h1 className='error-text'> I'm sorry but the page you are looking for is not found</h1>

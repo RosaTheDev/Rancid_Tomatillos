@@ -53,8 +53,5 @@ describe('Movie Test', () => {
       cy.get('.error-text')
       .contains('I\'m sorry but the page you are looking for is not found')
 
-    // cy.contains('.movie', 'Mulan')
-    //   .find('img')
-    //   .click()
   })
 })

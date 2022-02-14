@@ -1,15 +1,17 @@
-import React from  'react'
-import './MovieInfo.css'
-
-
+import React from  'react';
+import './MovieInfo.css';
+import NoVideoRendering from '../../ErrorNotFound/NoVideoRendering'
 
 
 const MovieInfo = ({ title, poster, avgRating, overview, backdrop, release, genres, budget, revenue, runtim, tagline, video }) => {
 
+  console.log(video)
+
   return (
     <article className="single-movie">
-      <img className="movie-poster" src={poster}  alt={`title showing in theaters`}/>
-      <iframe className='movie-trailer' src={video}/>
+      <img className="movie-poster" src={poster}  alt={`title showing in theaters`}/> 
+      {!video ? <NoVideoRendering /> : <iframe className='movie-trailer' src={video} title={title} />}
+      {/* <iframe className='movie-trailer' src={video} title={title}/> */}
       <div className='movie-specs'>
         <h3 className='single-movie-title'>Title: {title}</h3>
         <h3 className='single-movie-overview'>About: {overview}</h3>
@@ -19,10 +21,6 @@ const MovieInfo = ({ title, poster, avgRating, overview, backdrop, release, genr
         <h3 className='single-movie-revenue'>A revenue of ${revenue}</h3>
         <h3 className='single-movie-rating'> Rating: {avgRating}</h3>
       </div>
-
-      
-
-
     </article>
   )
 }

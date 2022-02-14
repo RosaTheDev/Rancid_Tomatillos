@@ -1,6 +1,6 @@
 import './App.css';
 import React, {Component} from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import grabAPI from '../utilities/moviesApi';
 import Nav from '../Nav/Nav'
 import MovieContainer from '../MovieContainer/MovieContainer'
@@ -44,21 +44,26 @@ class App extends Component {
 
   render() {
     return (
-      <section >
+      <main>
         <Nav filterMovies={this.newFilteredMovies}/>
-        {/* Switch statement needs to go in here */}
-        <Route exact path='/' render={() => <MovieContainer movies={this.state.filteredMovies} /> } />
-        <Route exact path='/:id' render={({match}) => {
-          const findMovie = this.state.movies.find((movie) => movie.id === parseInt(match.params.id))
-          if(findMovie) {
-            return (
-              <SingleMovie id={match.params.id}/>
-              )
-          }
-        }}
-        />
-        <Route render={() => <LolNotFound />} />
-      </section>
+      <Switch>
+         <Route exact path='/' render={() => <MovieContainer movies={this.state.filteredMovies} />} />
+         <Route exact path='/:id' render={({match}) => {
+           const findMovie = this.state.movies.find((movie) => movie.id === parseInt(match.params.id))
+           if(findMovie) {
+             return (
+               <SingleMovie id={match.params.id}/>
+               )
+              } else if (findMovie === undefined) {
+                return (
+                  <LolNotFound />
+                )
+              }
+            }}
+            />
+        {/* <Route render={() => <LolNotFound />} /> */}
+        </Switch>
+            </main>
     )
   }
 }

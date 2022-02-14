@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import './SingleMovie.css'
 import MovieInfo from './MovieInfo/MovieInfo'
+import LolNotFound from '../ErrorNotFound/404NotFound';
 import grabSingleMovieAPI from '../utilities/singleMovieApi';
 import grabTrailerAPI from '../utilities/trailerAPI';
 class  SingleMovie extends Component {
   constructor({id}) {
     super();
     this.state = {
-      currentMovie: null,
+      currentMovie: undefined,
       currentTrailer: null,
     };
     this.id = id;
@@ -30,11 +31,11 @@ class  SingleMovie extends Component {
       grabTrailerAPI(this.id)
       .then(data => {
         let videoInfo = data.videos.map(video => {
-          console.log(video)
           return `https://www.youtube.com/embed/${video.key}`
         })
         this.setState({...this.state, currentTrailer: videoInfo[0]})
       })
+        .catch(() => this.setState({ ...this.state, error: true }))
   }
 
   
@@ -43,7 +44,7 @@ class  SingleMovie extends Component {
       return (
       <MovieInfo
         title={this.state.currentMovie.title}
-        poster={this.state.currentMovie.backdrop_path}
+        poster={this.state.currentMovie.poster_path}
         video={this.state.currentTrailer}
         avgRating={this.state.currentMovie.average_rating}
         id={this.state.currentMovie.id}
@@ -62,7 +63,7 @@ class  SingleMovie extends Component {
   render() {
     return (
       <div>
-        {this.state.currentMovie && this.singleMovieCard()}
+        {this.state.currentMovie ? this.singleMovieCard() : <LolNotFound />}
       </div>
     )
   } 
