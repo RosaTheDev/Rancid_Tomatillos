@@ -62,7 +62,7 @@ class  SingleMovie extends Component {
 
   render() {
     return (
-      <div>
+      <div className='single-movie-container'>
         {this.state.currentMovie && this.singleMovieCard()}
       </div>
     )
