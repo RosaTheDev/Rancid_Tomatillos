@@ -44,10 +44,3 @@ React | CSS | Cypress
   ### Jacob's Reflection 
   - Rancid tomatillos was a fundamental project I will never forget, implementing react for the first time makes me feel like a real developer using a framework and learning it within a weeks time. This project really was a great time and was well paced enough for me and Richard to really learn the core aspects of react and how it works. From beginning to end Richard was an amazing project partner to work with. He was patient at first when react seemed confusing to me and would always ask great questions and have a unique way of breaking down hard problems.
 
-  
-  
-  
-  
-  
-[Return to Top](#Rancid Tomatillos)
-
