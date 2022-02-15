@@ -35,7 +35,9 @@ ul {
 }
 
 .movie-specs {
-  margin-top: 5%;
+display: flex;
+justify-content: center;
+margin-top: 5%;
 height: 70%;
 width: 100%;
 }

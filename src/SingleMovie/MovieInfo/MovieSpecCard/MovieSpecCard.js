@@ -4,17 +4,18 @@ import './MovieSpecCard.css'
 
 
 
-const MovieSpecCard = ({specs, title}) => {
+const MovieSpecCard = ({ rating, release, genres, revenue, runtime, tagline, budget}) => {
 
   return (
-    <div className={`${title} overview`}>
+    <div className='main-spec'>
       <div className="mybox corner">
-        <p>
-          {title}
-        </p>
-        <p>
-          {specs}
-        </p>
+        <p className='avgRating'>Rating: {rating}</p>
+        <p className='release'>Release Date: {release}</p>
+        <p className='genres'>Genre: {genres}</p>
+        <p className='revenue'>Total Revenue: ${revenue}</p>
+        <p className='runtime'>Run Time: {runtime}</p>
+        <p className='tageline'>Tag Line: {tagline}</p>
+        <p className='budget'>Budget: ${budget}</p>
       </div>
     </div>
   )

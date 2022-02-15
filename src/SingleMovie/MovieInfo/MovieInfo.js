@@ -1,11 +1,11 @@
 import React from  'react'
 import './MovieInfo.css'
 import MovieSpecCard from './MovieSpecCard/MovieSpecCard'
+import SecondSpecCard from './MovieSpecCard/SecondSpecCard'
 
 
 
-const MovieInfo = ({ title, poster, avgRating, overview, backdrop, release, genres, budget, revenue, runtim, tagline, video }) => {
-
+const MovieInfo = ({ title, poster, avgRating, overview, backdrop, release, genres, budget, revenue, runtime, tagline, video }) => {
   return (
     <article className="single-movie">
       <div className='poster-movie'>
@@ -15,13 +15,9 @@ const MovieInfo = ({ title, poster, avgRating, overview, backdrop, release, genr
         <iframe className='movie-trailer' width="420" height="396" src={video} />
       </div>
       <div className='movie-specs'>
-          <MovieSpecCard specs={title} title={'title'} />
-        <MovieSpecCard specs={avgRating} title={'rating'} />
-          <MovieSpecCard specs={overview} title={'overview'} />
-          <MovieSpecCard specs={release} title={'release'} />
-          <MovieSpecCard specs={genres} title={'genre'} />
-          <MovieSpecCard specs={budget} title={'budget'} />
-          <MovieSpecCard specs={revenue} title={'revenue'} />
+        <MovieSpecCard rating={avgRating} release={release} genres={genres} 
+                      revenue={revenue} runtime={runtime} tagline={tagline} budget={budget}/>
+        <SecondSpecCard overview={overview} title={title}    />
       </div>
     </article>
   )
