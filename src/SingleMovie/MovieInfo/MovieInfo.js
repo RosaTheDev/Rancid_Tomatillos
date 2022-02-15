@@ -13,7 +13,7 @@ const MovieInfo = ({ title, poster, avgRating, overview, backdrop, release, genr
         <div className='single-img-div'>
           <img className="single-movie-poster" src={poster} width={300} height={400} alt={`${title} showing in theaters`} />
         </div>
-        <iframe className='movie-trailer' width="420" height="396" src={video} />
+        <iframe className='movie-trailer' src={video} />
       </div>
       <div className='movie-specs'>
         <MovieSpecCard rating={avgRating} release={release} genres={genres} revenue={revenue} runtime={runtime} tagline={tagline} budget={budget}/>
