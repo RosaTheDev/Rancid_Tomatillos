@@ -16,13 +16,16 @@ class  SingleMovie extends Component {
   componentDidMount() {
     grabSingleMovieAPI(this.id)
       .then(data => {
+        console.log(data.movie.budget);
+        let calculateBudget = !data.movie.budget ? 'No Budget' : Math.round(data.movie.budget).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        let calculateRevenue = !data.movie.revenue ? 'No Revenue' : Math.round(data.movie.revenue).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
         let cleanData = {
           ...data.movie,
           release_date: data.movie.release_date.split('-').reverse().join("/"),
           average_rating: data.movie.average_rating.toFixed(1),
           genres: data.movie.genres.join(", ").split(""),
-          budget: Math.round(data.movie.budget).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
-          revenue: Math.round(data.movie.revenue).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+          budget: calculateBudget,
+          revenue: calculateRevenue
         }
         this.setState({ ...this.state, currentMovie: cleanData })
       })
@@ -52,10 +55,10 @@ class  SingleMovie extends Component {
         backdrop_path={this.state.currentMovie.backdrop_path}
         release={this.state.currentMovie.release_date}
         genres={this.state.currentMovie.genres}
-        budget={this.state.currentMovie.budget}
         revenue={this.state.currentMovie.revenue}
         runtime={this.state.currentMovie.runtime}
         tagline={this.state.currentMovie.tagline}
+        budget={this.state.currentMovie.budget}
       />
     )
 }

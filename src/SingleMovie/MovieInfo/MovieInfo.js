@@ -1,24 +1,23 @@
-import React from  'react';
-import './MovieInfo.css';
-import NoVideoRendering from '../../ErrorNotFound/NoVideoRendering'
+
+import React from  'react'
+import './MovieInfo.css'
+import MovieSpecCard from './MovieSpecCard/MovieSpecCard'
+import SecondSpecCard from './MovieSpecCard/SecondSpecCard'
 
 
-const MovieInfo = ({ title, poster, avgRating, overview, backdrop, release, genres, budget, revenue, runtim, tagline, video }) => {
 
-  console.log(video)
-
+const MovieInfo = ({ title, poster, avgRating, overview, backdrop, release, genres, budget, revenue, runtime, tagline, video }) => {
   return (
     <article className="single-movie">
-      <img className="single-movie-poster" src={poster} width={300} height={400} alt={`title showing in theaters`}/>
-      {!video ? <NoVideoRendering /> : <iframe className='movie-trailer' src={video} title={title} />}
+      <div className='poster-movie'>
+        <div className='single-img-div'>
+          <img className="single-movie-poster" src={poster} width={300} height={400} alt={`${title} showing in theaters`} />
+        </div>
+        <iframe className='movie-trailer' width="420" height="396" src={video} />
+      </div>
       <div className='movie-specs'>
-        <h3 className='single-movie-title'>Title: {title}</h3>
-        <h3 className='single-movie-overview'>About: {overview}</h3>
-        <h3 className='single-movie-release'>Released on: {release}</h3>
-        <h3 className='single-movie-genres'>Genres: {genres}</h3>
-        <h3 className='single-movie-budget'>A budget of ${budget}</h3>
-        <h3 className='single-movie-revenue'>A revenue of ${revenue}</h3>
-        <h3 className='single-movie-rating'> Rating: {avgRating}</h3>
+        <MovieSpecCard rating={avgRating} release={release} genres={genres} revenue={revenue} runtime={runtime} tagline={tagline} budget={budget}/>
+        <SecondSpecCard overview={overview} title={title}/>
       </div>
     </article>
   )

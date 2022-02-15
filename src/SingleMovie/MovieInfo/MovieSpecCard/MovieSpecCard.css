@@ -1,0 +1,39 @@
+.mybox {
+	font-family: "Josefin Sans", sans-serif;
+	min-width: 400px;
+	width: 80%;
+  height: 80%;
+	max-width: 500px;
+	border: 2px solid #000;
+	margin: 0 auto 15px;
+	text-align:start;
+	padding: 20px;
+	font-weight: bold;
+	border-radius: 10px;
+	position: relative;
+}
+
+.corner {
+  background-color: rgba(10, 255, 255, 0.33);
+	color: white;
+	border-color: #2d2d2d;
+}
+
+.corner:before {
+	font-size: 2rem;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+
+}
+
+.main-spec {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+}
+
+
+
