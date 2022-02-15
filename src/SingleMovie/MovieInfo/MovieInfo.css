@@ -3,6 +3,11 @@ html {
   height: 100%;
 }
 
+ul {
+  height: 100%;
+  width: 100%;
+}
+
 .single-movie {
   display: flex;
   flex-direction: column;
@@ -30,7 +35,9 @@ html {
 }
 
 .movie-specs {
-width: 30%;
+display: flex;
+margin-left: 4%;
+width: 100%;
 }
 
 .single-movie-poster {
@@ -79,4 +86,27 @@ width: 30%;
     opacity: 1;
     transform: scale(1, 1);
   }
+}
+
+.single-movie-overview, 
+.single-movie-title,
+.single-movie-release,
+.single-movie-genres,
+.single-movie-budget,
+.single-movie-revenue,
+.single-movie-rating {
+border: 1px solid black;
+color: white ;
+height: 40%;
+background-color: #af002d;
+}
+
+.single-movie-title {
+  height: 13%;
+}
+
+.single-movie-overview,
+.single-movie-genres,
+.single-movie-revenue{
+  margin-left: 50%;
 }
