@@ -8,8 +8,11 @@ describe('Movie Test', () => {
       average_rating: 6.625,
       release_date: "2020-09-29"
     });
+
     cy.visit('http://localhost:3000/')
+
   });
+  
   it('Should exist', () => {
     expect(true).to.equal(true)
   })
@@ -30,10 +33,25 @@ describe('Movie Test', () => {
 
   it('Should be able to select the search bar and fill in with a movie', () => {
     cy.get('input[type="text"]')
-    .type('Mulan')
-    .should('have.value', 'Mulan')
+      .type('Mulan')
+      .should('have.value', 'Mulan')
+
     cy.contains('.movie', 'Mulan')
-    .find('img')
+      .find('img')
       .click()
+  })
+
+  it('Should be able to have an error page', () => {
+    cy.visit('http://localhost:3000/jkdhsfajkhdjs')
+      .contains('.error-text', 'I\'m sorry but the page you are looking for is not found')
+  })
+
+  it('Should be able to select the search bar and fill in with a nonexistant movie', () => {
+    cy.get('input[type="text"]')
+      .type('Nonya')
+      .should('have.value', 'Nonya')
+      cy.get('.error-text')
+      .contains('I\'m sorry but the page you are looking for is not found')
+
   })
 })

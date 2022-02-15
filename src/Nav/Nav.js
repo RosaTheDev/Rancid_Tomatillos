@@ -1,8 +1,7 @@
 import React from 'react'
 import logo from '../movie.png'
 import './Nav.css'
-import { Route, NavLink } from 'react-router-dom';
-import {useState} from 'react'
+import { NavLink } from 'react-router-dom';
 
 
 const Nav = ({filterMovies}) => {

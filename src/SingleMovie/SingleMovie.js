@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import './SingleMovie.css'
 import MovieInfo from './MovieInfo/MovieInfo'
-import { Route, NavLink } from 'react-router-dom';
-import App from '../App/App'
+import LolNotFound from '../ErrorNotFound/404NotFound';
 import grabSingleMovieAPI from '../utilities/singleMovieApi';
 import grabTrailerAPI from '../utilities/trailerAPI';
 class  SingleMovie extends Component {
   constructor({id}) {
     super();
     this.state = {
-      currentMovie: null,
+      currentMovie: undefined,
       currentTrailer: null,
     };
     this.id = id;
@@ -39,6 +38,7 @@ class  SingleMovie extends Component {
         })
         this.setState({...this.state, currentTrailer: videoInfo[0]})
       })
+        .catch(() => this.setState({ ...this.state, error: true }))
   }
 
   
@@ -65,8 +65,8 @@ class  SingleMovie extends Component {
 
   render() {
     return (
-      <div className='single-movie-container'>
-        {this.state.currentMovie && this.singleMovieCard()}
+      <div>
+        {this.state.currentMovie ? this.singleMovieCard() : <LolNotFound />}
       </div>
     )
   } 
