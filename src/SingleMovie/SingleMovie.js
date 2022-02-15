@@ -17,6 +17,7 @@ class  SingleMovie extends Component {
   componentDidMount() {
     grabSingleMovieAPI(this.id)
       .then(data => {
+        console.log(data.movie.budget);
         let cleanData = {
           ...data.movie,
           release_date: data.movie.release_date.split('-').reverse().join("/"),

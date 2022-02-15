@@ -1,0 +1,45 @@
+.mybox {
+	font-family: "Josefin Sans", sans-serif;
+	min-width: 400px;
+	width: 75%;
+	max-width: 500px;
+	border: 2px solid #000;
+	margin: 0 auto 15px;
+	text-align: center;
+	padding: 20px;
+	font-weight: bold;
+	border-radius: 10px;
+	position: relative;
+}
+
+.corner {
+  background-color: rgba(10, 255, 255, 0.33);
+	color: white;
+	border-color: #2d2d2d;
+}
+
+.corner:before {
+	font-size: 2rem;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+
+}
+
+/* .overview, 
+.title,
+.release,
+.genre,
+.budget,
+.revenue,
+.rating {
+border: 1px solid black;
+
+} */
+
+.title {
+  height: 20%;
+  margin-bottom: 5%;
+  margin-right: 50%;
+}
+

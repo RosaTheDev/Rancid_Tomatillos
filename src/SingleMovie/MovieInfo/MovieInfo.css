@@ -35,8 +35,8 @@ ul {
 }
 
 .movie-specs {
-display: flex;
-margin-left: 4%;
+  margin-top: 5%;
+height: 70%;
 width: 100%;
 }
 
@@ -88,25 +88,3 @@ width: 100%;
   }
 }
 
-.single-movie-overview, 
-.single-movie-title,
-.single-movie-release,
-.single-movie-genres,
-.single-movie-budget,
-.single-movie-revenue,
-.single-movie-rating {
-border: 1px solid black;
-color: white ;
-height: 40%;
-background-color: #af002d;
-}
-
-.single-movie-title {
-  height: 13%;
-}
-
-.single-movie-overview,
-.single-movie-genres,
-.single-movie-revenue{
-  margin-left: 50%;
-}
