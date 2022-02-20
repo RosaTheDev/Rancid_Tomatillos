@@ -61,7 +61,6 @@ class App extends Component {
               }
             }}
             />
-        {/* <Route render={() => <LolNotFound />} /> */}
         </Switch>
             </main>
     )
